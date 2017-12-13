@@ -22,7 +22,6 @@
 
 			//require_once '../App/Controllers/'.$this->controller.'.php';
 			require_once 'Controller.php';
-			//die("In app.php");
 			$this->controller = new Controller($this->controller);
 
 

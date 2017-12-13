@@ -3,10 +3,12 @@
 	* 
 	*/
 	require_once '../../MVC/Core/Model.php';
-	class Teacher 
+	class Teacher extends Model
 	{
-		// public $table;
-		// public $columns = array();
+		// public $first_name;
+		// public $last_name;
+
+
 		public function __construct()
 		{
 			echo "New object";
