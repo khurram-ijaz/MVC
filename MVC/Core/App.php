@@ -20,9 +20,11 @@
 				unset($url[0]);
 			}
 
-			// require_once 'Controller.php';
-			require_once '../App/Controllers/'.$this->controller.'.php';
-			$this->controller = new $this->controller;
+			require_once 'Controller.php';
+			// require_once '../App/Controllers/'.$this->controller.'.php';
+			// $type = $this->controller.'Controller';
+			// $this->controller = $this->controller.'Controller';
+			$this->controller = new Controller($this->controller);
 
 
 			if(isset($url[1]))
