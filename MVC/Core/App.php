@@ -5,7 +5,7 @@
 
 	class App
 	{
-		protected $controller = "teacher" ;
+		protected $controller = "Teacher" ;
 		protected $method = "index" ;
 		protected $params = array();
 
@@ -20,9 +20,9 @@
 				unset($url[0]);
 			}
 
-			//require_once '../App/Controllers/'.$this->controller.'.php';
-			require_once 'Controller.php';
-			$this->controller = new Controller($this->controller);
+			// require_once 'Controller.php';
+			require_once '../App/Controllers/'.$this->controller.'.php';
+			$this->controller = new $this->controller;
 
 
 			if(isset($url[1]))

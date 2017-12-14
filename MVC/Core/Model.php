@@ -19,9 +19,11 @@
 		{
 			$modelname = ucfirst($type);
 			require_once '../App/Models/'.$modelname.'.php';
-		
+			
+
+
 			if(class_exists($modelname))
-    		{
+    		{	
       			return new $modelname();
     		}
 		}

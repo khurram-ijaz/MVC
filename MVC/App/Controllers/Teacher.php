@@ -6,15 +6,16 @@
 	require_once '../../MVC/Core/Controller.php';
 	Class Teacher extends Controller
 	{
-		protected $model;
+		public $model;
+
 		public function __construct()
 		{	
-			$this->model = parent::__construct('Teacher');
+			$this->model = parent::__construct('TeacherModel');
 		}
 
 		public function index()
 		{
-			echo "index running";
+			echo "index running \n";
 		}
 
 	}
