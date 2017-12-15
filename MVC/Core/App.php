@@ -5,8 +5,8 @@
 
 	class App
 	{
-		protected $controller = "Teacher" ;
-		protected $method = "index" ;
+		protected $controller ;
+		protected $method;
 		protected $params = array();
 
 

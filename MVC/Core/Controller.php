@@ -2,7 +2,6 @@
 /**
 
  */
-
 require_once 'Model.php';
 
 class Controller
@@ -16,12 +15,24 @@ class Controller
 
     public static function makeController($type)
     {
-		$controllerName = $type.'Controller';
-		require_once '../App/Controllers/'.$controllerName.'.php';
+    	if ($modeltype = stristr($type,"controller", true)) 
+    	{
+    		require_once '../App/Controllers/'.$type.'.php';
+    		if(class_exists($type))
+    		{	
+      			return new $type($modeltype);
+    		}
+    	}
+
+    	else
+    	{
+    		$controllerName = $type.'Controller';
+			require_once '../App/Controllers/'.$controllerName.'.php';
 			
-		if(class_exists($controllerName))
-    	{	
-      		return new $controllerName($type);
+			if(class_exists($controllerName))
+    		{	
+      			return new $controllerName($type);
+    		}
     	}
 	}
    
