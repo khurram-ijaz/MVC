@@ -21,10 +21,8 @@
 			}
 
 			require_once 'Controller.php';
-			// require_once '../App/Controllers/'.$this->controller.'.php';
-			// $type = $this->controller.'Controller';
-			// $this->controller = $this->controller.'Controller';
-			$this->controller = new Controller($this->controller);
+			$this->controller = Controller::makeController($this->controller);
+			
 
 
 			if(isset($url[1]))
@@ -34,15 +32,11 @@
                 	$this->method=$url[1];
                 	unset($url[1]);
             	}
-            	// else
-            	// {
-            	// 	echo "Method not found in controller";
-            	// }
         	}
 
 
         	$this->params= $url ? array_values($url) : [];
-        	call_user_func_array([$this->controller, $this->method], $this->params);
+        	call_user_func_array([$this->controller , $this->method], $this->params);
 		}
 
 		public function parseUrl()

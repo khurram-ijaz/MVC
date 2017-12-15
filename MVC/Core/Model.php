@@ -20,7 +20,6 @@
 		{
 			$modelname = ucfirst($type);
 			require_once '../App/Models/'.$modelname.'.php';
-			// die('in here');
 			if(class_exists($modelname))
     		{	
       			return new $modelname();

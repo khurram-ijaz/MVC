@@ -8,10 +8,10 @@
 	{
 		public $model;
 
-		public function __construct()
+		public function __construct($type)
 		{	
-			//$this->model = parent::__construct('TeacherModel');
 			echo "Controller object \n";
+			$this->model = parent::__construct($type);
 		}
 
 		public function index()
