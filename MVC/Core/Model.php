@@ -10,6 +10,7 @@
 		public $table;
 		public $columns = array();
 		public $result = array();
+		public $columnNames = [];
 
 		public function __construct()
 		{
@@ -27,6 +28,7 @@
     		}
 		}
 
+
 		public function selectAll($model)
 		{
 			$query = "SELECT * FROM ".$model->table."";
@@ -38,10 +40,21 @@
 			return $result;
 		}
 
-		// public function insert($model , $columnvalues)
-		// {
-		// 	$query = "INSERT INTO ".$model->table." ($model->columns) VALUES () ";
-		// }
+
+		public function insert($model)
+		{	
+			foreach ($model->columns as $key) 
+			{
+				$this->columnNames[$key] = "'".$model->$key."'";
+			}
+			$fieldNames = implode("," , array_keys($this->columnNames));
+			$fieldValues = implode("," , array_values($this->columnNames));
+			$query = "INSERT INTO ".$model->table." (".$fieldNames.") "." VALUES ($fieldValues) ";
+			$result = mysqli_query($this->db , $query);
+			if (mysqli_affected_rows($this->db)>0) 
+			{
+				return $result;
+			}
+		}
 
 	}
-?>
