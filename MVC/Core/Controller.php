@@ -10,7 +10,7 @@ class Controller
    
     public function __construct($type)
     {   
-    	$this->model = Model::makeModel($type);
+    	return $this->model = Model::makeModel($type);
     }
 
     public static function makeController($type)

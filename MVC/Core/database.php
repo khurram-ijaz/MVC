@@ -7,16 +7,14 @@
 	{	
 		private $connect;
 		public static $instance;
-		// private $host = "localhost";
-		// private $username = "root";
-		// private $password = "123";
-		// private $database = "practice";
 		
 		function __construct()
 		{
 			$this->connect = mysqli_connect(Config::$host, Config::$username, 
 				Config::$password, Config::$database);
-			if (self::$instance->connect_error) {
+			
+			if (self::$instance->connect_error) 
+			{
 				die("Connection failed" . self::$instance->connect_error);
 			}	
 
@@ -25,7 +23,8 @@
 
 		public static function getInstance()
 		{
-			if (self::$instance == null) {
+			if (self::$instance == null) 
+			{
 				self::$instance = new Database();
 			}
 

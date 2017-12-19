@@ -9,6 +9,7 @@
 		public $db;
 		public $table;
 		public $columns = array();
+		public $result = array();
 
 		public function __construct()
 		{
@@ -26,17 +27,20 @@
     		}
 		}
 
-		// public function selectAll($model)
-		// {
-		// 	// $this->db->table = $model->table;
-		// 	$query = "SELECT * FROM $model->table";
-		// 	$result = mysqli_query($this->db , $query);
-		// 	while($row = mysqli_fetch_assoc($res))
-		// 	{
-		// 		echo $row['first_name']."\t " ;
-		// 		echo $row['last_name']. "<br>";
-		// 	}
+		public function selectAll($model)
+		{
+			$query = "SELECT * FROM ".$model->table."";
+			$mysqli_result = mysqli_query($this->db , $query);
+			while($row = mysqli_fetch_assoc($mysqli_result))
+			{
+				$result[] = $row;
+			}
+			return $result;
+		}
 
+		// public function insert($model , $columnvalues)
+		// {
+		// 	$query = "INSERT INTO ".$model->table." ($model->columns) VALUES () ";
 		// }
 
 	}
