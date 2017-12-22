@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <body>
-<link rel="stylesheet" type="text/css" href="styles.css" />
+<link rel="stylesheet" type="text/css" href="../../App/Views/styles.css" />
 
 
 <h2>Add teacher</h2>
-
 <form method="post" action="store">
 
   <div class="container">
